@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aheer's Kitchen | Desi Restaurant &amp; Grill</title>
+  <meta name="description" content="Aheer's Kitchen - authentic desi food, BBQ and more. Order online or reserve a table.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header id="header">
+    <div class="container nav-wrap">
+      <a href="#home" class="logo"><span class="logo-icon">🍽️</span> Aheer's <b>Kitchen</b></a>
+
+      <nav id="nav">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#reserve">Reserve</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-ghost btn-sm" data-act="openOrders">My Orders</button>
+        <button class="btn btn-primary btn-sm" data-act="openCart">🛒 Cart <span class="badge" id="cartCount">0</span></button>
+        <button class="hamburger" id="menuToggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <span class="chip" id="openChip">Checking hours…</span>
+          <h1>Taste the <span class="accent">tradition</span>,<br>one bite at a time.</h1>
+          <p>Slow-cooked karahi, charcoal BBQ, fragrant biryani and fresh naan, made daily with
+             family recipes and the best ingredients. Dine in, pick up or get it delivered.</p>
+          <div class="hero-btns">
+            <a href="#menu" class="btn btn-primary">Order Now</a>
+            <a href="#reserve" class="btn btn-outline">Book a Table</a>
+          </div>
+          <div class="hero-stats">
+            <div><strong id="statDishes">0</strong><span>Dishes</span></div>
+            <div><strong id="statRating">0.0</strong><span>Avg. rating</span></div>
+            <div><strong>12–11:30</strong><span>Open daily</span></div>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="plate">🍛</div>
+          <span class="float f1">🍢</span>
+          <span class="float f2">🫓</span>
+          <span class="float f3">🥭</span>
+          <span class="float f4">🌶️</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MENU ================= -->
+    <section id="menu" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Our Menu</span>
+          <h2>Freshly made, always hot</h2>
+          <p>Pick your favourites, add them to the cart and place your order in under a minute.</p>
+        </div>
+
+        <div class="menu-tools">
+          <div class="filters" id="filters"></div>
+          <input type="search" id="search" placeholder="🔍 Search dishes…" aria-label="Search dishes">
+        </div>
+
+        <div class="menu-grid" id="menuGrid"></div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Our Story</span>
+          <h2>A family kitchen that grew into a restaurant</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>Aheer's Kitchen started with one simple idea: serve the food people grew up eating,
+               cooked the slow, honest way. Every karahi is made to order, every kabab is grilled
+               over charcoal, and every naan comes straight from the tandoor.</p>
+            <p>Founded and owned by <strong>Basit Aheer</strong> and led day-to-day by
+               our CEO <strong>Ahmad</strong>, we believe a good meal should feel like being at home,
+               just with more flavour.</p>
+            <ul class="values">
+              <li>🌿 <b>Fresh daily</b> – no frozen shortcuts</li>
+              <li>🔥 <b>Real charcoal</b> – for that smoky BBQ taste</li>
+              <li>🤝 <b>Honest prices</b> – generous portions</li>
+            </ul>
+          </div>
+
+          <div class="team">
+            <div class="person">
+              <div class="avatar">B</div>
+              <h3>Basit Aheer</h3>
+              <span>Founder &amp; Owner</span>
+              <p>"Great food starts with respect for the ingredients and the guests."</p>
+            </div>
+            <div class="person">
+              <div class="avatar gold">A</div>
+              <h3>Ahmad</h3>
+              <span>Chief Executive Officer (CEO)</span>
+              <p>"We measure success by how many guests come back the next week."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RESERVATION ================= -->
+    <section id="reserve" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Reservations</span>
+          <h2>Book your table</h2>
+          <p>Reserve a spot for family dinners, birthdays or business lunches.</p>
+        </div>
+
+        <div class="two-col">
+          <form id="reserveForm" class="card form" novalidate>
+            <h3>Reservation details</h3>
+            <div class="row">
+              <label>Full name<input type="text" name="name" placeholder="Your name" required></label>
+              <label>Phone<input type="tel" name="phone" placeholder="03xx xxxxxxx" required></label>
+            </div>
+            <div class="row">
+              <label>Date<input type="date" name="date" id="resDate" required></label>
+              <label>Time<input type="time" name="time" min="12:00" max="23:00" value="19:00" required></label>
+            </div>
+            <div class="row">
+              <label>Guests<input type="number" name="guests" min="1" max="20" value="2" required></label>
+              <label>Occasion
+                <select name="occasion">
+                  <option>Casual dining</option>
+                  <option>Birthday</option>
+                  <option>Anniversary</option>
+                  <option>Business meeting</option>
+                  <option>Family gathering</option>
+                </select>
+              </label>
+            </div>
+            <label>Special requests (optional)<textarea name="notes" rows="2" placeholder="Window seat, high chair, etc."></textarea></label>
+            <p class="form-error" role="alert"></p>
+            <button class="btn btn-primary" type="submit">Reserve table</button>
+          </form>
+
+          <div class="card">
+            <h3>Your reservations</h3>
+            <div id="resList" class="list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REVIEWS ================= -->
+    <section id="reviews" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Reviews</span>
+          <h2>What our guests say</h2>
+          <p id="ratingSummary"></p>
+        </div>
+
+        <div class="two-col">
+          <div id="reviewList" class="list reviews"></div>
+
+          <form id="reviewForm" class="card form" novalidate>
+            <h3>Leave a review</h3>
+            <label>Your name<input type="text" name="name" placeholder="Your name" required></label>
+            <div class="stars-pick">
+              <span>Your rating</span>
+              <div id="starPicker"></div>
+            </div>
+            <label>Comment<textarea name="comment" rows="3" placeholder="Tell us about your experience…" required></textarea></label>
+            <p class="form-error" role="alert"></p>
+            <button class="btn btn-primary" type="submit">Submit review</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Contact</span>
+          <h2>Get in touch</h2>
+        </div>
+
+        <div class="two-col">
+          <div class="card info">
+            <h3>Visit us</h3>
+            <p>📍 12 Main Boulevard, Food Street, Pakistan</p>
+            <p>📞 0300 1234567</p>
+            <p>✉️ hello@aheerskitchen.example</p>
+            <h3>Opening hours</h3>
+            <table class="hours">
+              <tr><td>Monday – Thursday</td><td>12:00 PM – 11:30 PM</td></tr>
+              <tr><td>Friday – Sunday</td><td>12:00 PM – 11:30 PM</td></tr>
+            </table>
+            <p class="muted">Management: Basit Aheer (Owner) · Ahmad (CEO)</p>
+          </div>
+
+          <form id="contactForm" class="card form" novalidate>
+            <h3>Send us a message</h3>
+            <label>Name<input type="text" name="name" required></label>
+            <label>Email<input type="email" name="email" required></label>
+            <label>Message<textarea name="message" rows="4" required></textarea></label>
+            <p class="form-error" role="alert"></p>
+            <button class="btn btn-primary" type="submit">Send message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container foot">
+      <div>
+        <div class="logo light"><span class="logo-icon">🍽️</span> Aheer's <b>Kitchen</b></div>
+        <p>Owner: Basit Aheer · CEO: Ahmad</p>
+      </div>
+      <div class="foot-right">
+        <p>© <span id="year"></span> Aheer's Kitchen. All rights reserved.</p>
+        <button class="link-btn" data-act="openAdmin">Staff login</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= CART DRAWER ================= -->
+  <div id="overlay" data-act="closeCart"></div>
+  <aside id="cartDrawer" aria-label="Shopping cart">
+    <div class="drawer-head">
+      <h3>Your cart</h3>
+      <button class="icon-btn" data-act="closeCart" aria-label="Close cart">✕</button>
+    </div>
+    <div id="cartBody" class="drawer-body"></div>
+  </aside>
+
+  <!-- ================= GENERIC MODAL ================= -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-box" id="modalBox" role="dialog" aria-modal="true">
+      <button class="icon-btn modal-x" data-act="closeModal" aria-label="Close">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Toast messages -->
+  <div id="toasts" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
